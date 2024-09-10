@@ -95,5 +95,19 @@ PORT=5000
 MONGO_URI=mongodb://localhost:27017/payment-management
 JWT_SECRET=your_jwt_secret
 
+brew tap mongodb/brew
+brew install mongodb-community
+Luego: code ~/.zshrc
+
+Agregar esta linea al principio del file ~/Zh
+export PATH="/opt/homebrew/opt/mongodb-community@5.0/bin:$PATH"
+
+
+brew services start mongodb-community
+
+luego npm install
+
+y por ultimo npm start!
+
 npm start
 
