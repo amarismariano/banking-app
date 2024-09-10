@@ -7,24 +7,24 @@ const User = require("../../models/user.model");
 let token;
 
 beforeAll(async () => {
-  await User.deleteMany(); // Asegúrate de que la base de datos esté limpia
+  await User.deleteMany();
 
   const user = await User.create({
     username: "testuser21",
     password: "testpassword",
   });
 
-  console.log("User created:", user);
+  
 
   const res = await request(app).post("/api/auth/login").send({
     username: "testuser21",
     password: "testpassword",
   });
 
-  console.log("LOGIN RESPONSE:", res.body);
+  
 
   token = res.body.token;
-  console.log("Token:", token);
+  
 });
 
 afterAll(async () => {
@@ -39,7 +39,7 @@ describe("Auth API", () => {
       password: "testpassword",
     });
 
-    console.log("LOGIN RESPONSE:", res.body);
+    
 
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty("token");
